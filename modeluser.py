@@ -431,20 +431,24 @@ class index:
                     }
                     frienduserlist = webwx.ContactList
                     sql_friendlist =[]
+
                     tempsqllist = db1.select('friend_list',what='markname',where=web.db.sqlwhere(user_frilist))
                     for x in tempsqllist:
                         sql_friendlist.append(x.markname)
                         
+
                     for tempuser in frienduserlist:
                         '''
                         #更新好友列表
                         '''
                         temp2 = db1.transaction()
+
                         tempmark=tempuser['RemarkName']
                         try:
                             if tempmark not in sql_friendlist:
                                 db1.insert('friend_list',markname=tempmark,wx_id=session.user.id)
                                 sql_friendlist.append(tempmark)
+
                         except :
                             temp2.rollback()
                         else:
