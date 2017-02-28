@@ -68,6 +68,7 @@ create table friend_list(
     foreign key(wx_id) references example_users(id)  
 )engine=innodb default charset=utf8 auto_increment=1;
 
+
 create table messagelist(
 message_id int(12) not null auto_increment,
 srcName varchar(50),

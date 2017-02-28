@@ -441,6 +441,7 @@ class index:
                             if tempmark not in sql_friendlist:
                                 db1.insert('friend_list',markname=tempmark,wx_id=session.user.id)
                                 sql_friendlist.append(tempmark)
+                                
                             '''
                             user_frilist = {
                                 'markname':tempmark,
